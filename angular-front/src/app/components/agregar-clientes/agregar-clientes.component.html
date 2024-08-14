@@ -2,25 +2,25 @@
     <div class="row col-6 mx-auto">
         <div class="card">
             <div class="card-body">
-                <form action="">
+                <form #clienteForm="ngForm" (ngSubmit)="agregarCliente()">
                     <div class="row">
                         <div class="col-md-7 mb-2">
                             <label for="" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" name="nombre" placeholder="Nombre">
+                            <input type="text" class="form-control" name="nombre" placeholder="Nombre" [(ngModel)]="cliente.nombre">
                           </div>
                         <div class="col-md-5 mb-2">
                             <label for="" class="form-label">Edad</label>
-                            <input type="text" class="form-control" name="edad" placeholder="Edad">
+                            <input type="text" class="form-control" name="edad" placeholder="Edad" [(ngModel)]="cliente.edad">
                           </div>
                     </div>
                     <div class="row">
                         <div class="col-md-7 mb-2">
                             <label for="" class="form-label">Fecha de Nacimiento</label>
-                            <input type="date" class="form-control" name="fecha">
+                            <input type="date" class="form-control" name="fecha" [(ngModel)]="cliente.fecha">
                           </div>
                         <div class="col-md-5 mb-2">
                             <label for="" class="form-label">Genero</label>
-                            <select name="genero" class="form-control">
+                            <select name="genero" class="form-control" [(ngModel)]="cliente.genero">
                                 <option value="">Seleccionar Género</option>
                                 <option value="M">Masculino</option>
                                 <option value="F">Femenino</option>

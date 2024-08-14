@@ -18,14 +18,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Brandon Quintero</td>
-                            <td>19</td>
-                            <td>2005-01-20</td>
-                            <td>Masculino</td>
-                            <td><a href="editar-cliente/1" class="btn btn-warning text-white">Editar</a></td>
-                            <td><a class="btn btn-danger">Eliminar</a></td>
+                        <tr *ngFor="let cliente of clientes">
+                            <td>{{ cliente.idCliente }}</td>
+                            <td>{{ cliente.nombre }}</td>
+                            <td>{{ cliente.edad }}</td>
+                            <td>{{ cliente.fecha }}</td>
+                            <td>{{ cliente.genero === 'M' ? 'Masculino' : 'Femenino'  }}</td>
+                            <td><a href="editar-cliente/{{cliente.idCliente}}" class="btn btn-warning text-white">Editar</a></td>
+                            <td><a class="btn btn-danger" (click)="deleteCliente(cliente.idCliente)">Eliminar</a></td>
                         </tr>
                     </tbody>
                   </table>

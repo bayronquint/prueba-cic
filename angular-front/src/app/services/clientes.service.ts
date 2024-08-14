@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ClientesService {
-  url = 'http://localhost/prueba-cic/api/clientes/';
+  url = 'http://localhost/prueba-cic/api/clientes';
   constructor(private http: HttpClient) { }
 
   obtenerClientes(): Observable<any>{
@@ -18,7 +18,7 @@ export class ClientesService {
   }
 
   eliminarCliente(idCliente: number): Observable<any>{
-    return this.http.delete(`${this.url}/seleccionar.php/?idCliente=` + idCliente)
+    return this.http.delete(`${this.url}/eliminar.php/?idCliente=` + idCliente)
   }
 
   agregarCliente(cliente: any): Observable<any>{
@@ -26,6 +26,6 @@ export class ClientesService {
   }
   
   editarCliente(cliente: any): Observable<any>{
-    return this.http.put(`${this.url}/editar.php`, JSON.stringify(cliente))
+    return this.http.put(`${this.url}/actualizar.php`, JSON.stringify(cliente))
   }
 }
