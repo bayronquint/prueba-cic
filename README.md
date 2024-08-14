@@ -20,5 +20,6 @@ Antes de comenzar, asegúrate de tener instalados los siguientes programas:
 ### 1. Configuración del Front-end (Angular)
 
 1. **Instalar dependencias de Angular**:
-   
-   Navega a
+   Navega al directorio de **angular-front** y ejecuta:
+   ```bash
+   npm install
