@@ -2,15 +2,20 @@
 Este proyecto consta de tres componentes principales:
 
 Front-end: Aplicación en Angular
+
 Back-end: API en PHP
+
 Script de Python: Análisis y procesamiento de datos
 
 ## Requisitos Previos
 Antes de comenzar, asegúrate de tener instalados los siguientes programas:
 
 Node.js (incluye npm)
+
 PHP
+
 Python
+
 MySQL (para la base de datos)
 
 ## Configuración del Proyecto
