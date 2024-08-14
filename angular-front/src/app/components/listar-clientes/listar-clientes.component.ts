@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ClientesService } from '../../services/clientes.service';
 import { Cliente } from '../../clases/cliente';
 
@@ -8,13 +8,12 @@ import { Cliente } from '../../clases/cliente';
   standalone: true,
   imports: [ CommonModule ],
   templateUrl: './listar-clientes.component.html',
-  styleUrl: './listar-clientes.component.css',
-  providers: [DatePipe]
+  styleUrl: './listar-clientes.component.css'
 })
 export class ListarClientesComponent {
   clientes: Cliente[] = [];
 
-  constructor(private clientesService : ClientesService, private datePipe: DatePipe) {}
+  constructor(private clientesService : ClientesService) {}
 
   cargarClientes(){
     this.clientesService.obtenerClientes().subscribe(clientes => this.clientes = clientes);
