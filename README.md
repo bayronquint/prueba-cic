@@ -29,7 +29,7 @@ Asegurate de clonarlo en el directorio **C:\xampp\htdocs**
 ### 2. Configuración del Back-end (PHP)
 
 1. **Importar base de datos**:
-   Importa el archivo de base de datos proporcionado (database.sql) a tu servidor MySQL usando phpMyAdmin
+   Importa el archivo de base de datos proporcionado **(database.sql)** a tu servidor MySQL usando phpMyAdmin
 
 ### 3. Configuración del Script (Python)
 
