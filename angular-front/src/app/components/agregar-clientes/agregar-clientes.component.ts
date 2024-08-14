@@ -16,12 +16,16 @@ export class AgregarClientesComponent {
   constructor(private clientesService : ClientesService, private router: Router){ }
 
   agregarCliente(){
-    this.clientesService.agregarCliente(this.cliente).subscribe(resultado => {
-      if(!resultado['insertCliente']){
-        alert('Ocurrió un error al insertar la información del cliente.')
-      } else{
-        this.router.navigate(['/']);
-      }
-    })
+    if (!this.cliente.nombre || this.cliente.edad <= 0 || !this.cliente.fecha || !this.cliente.genero) {
+      alert('Todos los campos son obligatorios. Por favor, complete la información del cliente.');
+    } else{
+      this.clientesService.agregarCliente(this.cliente).subscribe(resultado => {
+        if(!resultado['insertCliente']){
+          alert('Ocurrió un error al insertar la información del cliente.')
+        } else{
+          this.router.navigate(['/']);
+        }
+      })
+    }
   }
 }
