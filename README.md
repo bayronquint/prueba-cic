@@ -26,7 +26,6 @@ Asegurate de clonarlo en el directorio **C:\xampp\htdocs**
    Navega al directorio de **angular-front** y ejecuta:
    ```bash
    npm install
-
 ### 2. Configuración del Back-end (PHP)
 
 1. **Importar base de datos**:
