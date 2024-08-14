@@ -1,11 +1,13 @@
 # Prueba técnica para Creative Innovation Company - Brandon Quintero Tobón
 Este proyecto consta de tres componentes principales:
+
   -Front-end: Aplicación en Angular
   -Back-end: API en PHP
   -Script de Python: Análisis y procesamiento de datos
 
 ## Requisitos Previos
 Antes de comenzar, asegúrate de tener instalados los siguientes programas:
+
   -Node.js (incluye npm)
   -PHP
   -Python
