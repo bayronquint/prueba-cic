@@ -1,4 +1,4 @@
-# Proyecto de Ejemplo: Angular, PHP y Python
+# Prueba CIC: Angular, PHP y Python
 
 Este proyecto consta de tres componentes principales:
 
