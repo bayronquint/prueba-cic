@@ -1,35 +1,38 @@
-<div class="container">
-    <div class="row">
-        <div class="card">
-            <div class="card-header">
-                <a href="agregar-cliente" class="btn btn-primary">Agregar</a>
-            </div>
-            <div class="card-body">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th> # </th>
-                            <th>Nombre</th>
-                            <th>Edad</th>
-                            <th>Fecha</th>
-                            <th>Género</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let cliente of clientes">
-                            <td>{{ cliente.idCliente }}</td>
-                            <td>{{ cliente.nombre }}</td>
-                            <td>{{ cliente.edad }}</td>
-                            <td>{{ cliente.fecha }}</td>
-                            <td>{{ cliente.genero === 'M' ? 'Masculino' : 'Femenino'  }}</td>
-                            <td><a href="editar-cliente/{{cliente.idCliente}}" class="btn btn-warning text-white">Editar</a></td>
-                            <td><a class="btn btn-danger" (click)="deleteCliente(cliente.idCliente)">Eliminar</a></td>
-                        </tr>
-                    </tbody>
-                  </table>
-            </div>
-        </div>
+<div class="container mx-auto px-4 mt-8">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl font-bold text-gray-800">Lista de Clientes</h2>
+      <a [routerLink]="['/agregar-cliente']" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-200 ease-in-out">Agregar Cliente</a>
     </div>
-</div>
+    
+    <div class="bg-white shadow-lg rounded-lg p-6">
+      <table class="min-w-full bg-white border border-gray-300 rounded-md">
+        <thead>
+          <tr class="bg-gray-200 text-gray-600 text-left text-sm uppercase tracking-wider">
+            <th class="px-6 py-3">#</th>
+            <th class="px-6 py-3">Nombre</th>
+            <th class="px-6 py-3">Edad</th>
+            <th class="px-6 py-3">Fecha</th>
+            <th class="px-6 py-3">Género</th>
+            <th class="px-6 py-3"></th>
+            <th class="px-6 py-3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes" class="hover:bg-gray-100 transition duration-200">
+            <td class="px-6 py-4 border-b">{{ cliente.idCliente }}</td>
+            <td class="px-6 py-4 border-b">{{ cliente.nombre }}</td>
+            <td class="px-6 py-4 border-b">{{ cliente.edad }}</td>
+            <td class="px-6 py-4 border-b">{{ cliente.fecha }}</td>
+            <td class="px-6 py-4 border-b">{{ cliente.genero === 'M' ? 'Masculino' : 'Femenino' }}</td>
+            <td class="px-6 py-4 border-b">
+              <a [routerLink]="['/editar-cliente', cliente.idCliente]" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded transition duration-200 ease-in-out">Editar</a>
+            </td>
+            <td class="px-6 py-4 border-b">
+              <a (click)="deleteCliente(cliente.idCliente)" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-200 ease-in-out cursor-pointer">Eliminar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

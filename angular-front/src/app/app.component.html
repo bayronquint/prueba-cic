@@ -1,26 +1,24 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-    <a class="navbar-brand" routerLink="home" routerLinkActive="active">Angular Standalone Auth</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample" aria-controls="navbarsExample" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarsExample">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="loginbtn" routerLink="home" routerLinkActive="active">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="loginbtn" routerLink="login" routerLinkActive="active">Login</a>
-        </li>
-        <li class="nav-item">
-          <button type="button" *ngIf="logoutbtn" class="btn btn-block" (click)="logout()">Logout</button>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" *ngIf="loginbtn" routerLink="registration" routerLinkActive="active">Registration</a>
-        </li>
-      </ul>
+<nav class="bg-white shadow-md">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <div class="flex-shrink-0">
+        <a class="text-xl font-bold text-gray-800" routerLink="" routerLinkActive="active">Prueba CIC</a>
+      </div>
+      <div class="flex md:hidden">
+        <button class="text-gray-800 focus:outline-none" type="button" aria-expanded="false" aria-label="Toggle navigation">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+      </div>
+      <div class="hidden md:flex md:items-center md:space-x-6">
+        <a *ngIf="loginbtn" routerLink="login" routerLinkActive="active" class="text-gray-700 hover:text-blue-500">Iniciar Sesión</a>
+        <a *ngIf="loginbtn" routerLink="register" routerLinkActive="active" class="text-gray-700 hover:text-blue-500">Registrar</a>
+        <button type="button" *ngIf="logoutbtn" routerLink="listar-clientes" routerLinkActive="active" class="text-gray-700 hover:text-green-500">Clientes</button>
+        <button type="button" *ngIf="logoutbtn" (click)="logout()" class="text-gray-700 hover:text-red-500">Cerrar Sesión</button>
+      </div>
     </div>
-  </nav>
-  
-  <router-outlet></router-outlet>
-  
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

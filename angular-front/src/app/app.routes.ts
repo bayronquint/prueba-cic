@@ -4,11 +4,21 @@ import { ListarClientesComponent } from './components/listar-clientes/listar-cli
 import { EditarClientesComponent } from './components/editar-clientes/editar-clientes.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from '../app/guard/authguard.guard'; // Importar la guarda de autenticación
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 export const routes: Routes = [
     {
         path: '',
         component: HomeComponent
+    },
+    {
+        path: 'login',
+        component: LoginComponent
+    },
+    {
+        path: 'register',
+        component: RegisterComponent
     },
     {
         path: 'listar-clientes',

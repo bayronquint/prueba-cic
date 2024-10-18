@@ -1,42 +1,39 @@
-<div class="container">
-    <div class="row col-6 mx-auto">
-        <div class="card">
-            <div class="card-body">
-                <form #clienteForm="ngForm" (ngSubmit)="editarCliente()">
-                    <div class="row">
-                        <div class="col-md-7 mb-2">
-                            <label for="" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" name="nombre" placeholder="Nombre" [(ngModel)]="cliente.nombre">
-                          </div>
-                        <div class="col-md-5 mb-2">
-                            <label for="" class="form-label">Edad</label>
-                            <input type="text" class="form-control" name="edad" placeholder="Edad" [(ngModel)]="cliente.edad">
-                          </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-7 mb-2">
-                            <label for="" class="form-label">Fecha de Nacimiento</label>
-                            <input type="date" class="form-control" name="fecha" [(ngModel)]="cliente.fecha">
-                          </div>
-                        <div class="col-md-5 mb-2">
-                            <label for="" class="form-label">Genero</label>
-                            <select name="genero" class="form-control" [(ngModel)]="cliente.genero">
-                                <option value="">Seleccionar Género</option>
-                                <option value="M">Masculino</option>
-                                <option value="F">Femenino</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-auto col-xs-6">
-                            <button type="submit" class="btn btn-warning text-white">Editar Cliente</button>
-                        </div>
-                        <div class="col-md-auto col-xs-6">
-                            <a type="button" href="listar-clientes" class="btn btn-secondary ">Volver</a>
-                        </div>
-                    </div>
-                  </form>
-            </div>
+<h2 class="text-3xl font-bold text-center mt-8 mb-4">Editar Cliente</h2>
+<div class="flex justify-center">
+  <div class="w-full max-w-md">
+    <div class="bg-white shadow-lg rounded-lg p-8">
+      <form #clienteForm="ngForm" (ngSubmit)="editarCliente()">
+        <div class="mb-6">
+          <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
+          <input type="text" name="nombre" placeholder="Nombre" [(ngModel)]="cliente.nombre" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 text-lg p-2" required />
         </div>
+
+        <div class="mb-6">
+          <label for="edad" class="block text-sm font-medium text-gray-700">Edad</label>
+          <input type="text" name="edad" placeholder="Edad" [(ngModel)]="cliente.edad" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 text-lg p-2" required />
+        </div>
+
+        <div class="mb-6">
+          <label for="fecha" class="block text-sm font-medium text-gray-700">Fecha de Nacimiento</label>
+          <input type="date" name="fecha" [(ngModel)]="cliente.fecha" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 text-lg p-2" required />
+        </div>
+
+        <div class="mb-6">
+          <label for="genero" class="block text-sm font-medium text-gray-700">Género</label>
+          <select name="genero" [(ngModel)]="cliente.genero" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 text-lg p-2" required>
+            <option value="">Seleccionar Género</option>
+            <option value="M">Masculino</option>
+            <option value="F">Femenino</option>
+          </select>
+        </div>
+
+        <div class="flex justify-between">
+          <button type="submit" 
+            class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-4 rounded transition duration-200 ease-in-out cursor-pointer" 
+            [disabled]="!clienteForm.valid">Editar Cliente</button>
+          <a [routerLink]="['/listar-clientes']" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-4 rounded transition duration-200 ease-in-out cursor-pointer">Volver</a>
+        </div>
+      </form>
     </div>
+  </div>
 </div>

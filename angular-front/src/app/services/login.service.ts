@@ -7,36 +7,48 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
-  baseUrl: string = "http://localhost:8080/prueba-cic/api/auth"; // Cambia por tu URL correcta
+  baseUrl: string = "http://localhost:8080/prueba-cic/api/auth"; 
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
 
   constructor(private httpClient: HttpClient) {}
 
-  // Login del usuario
   public userlogin(email: string, password: string): Observable<any> {
     return this.httpClient.post<any>(`${this.baseUrl}/login.php`, { email, password })
       .pipe(map(user => {
-        // Guardar el token en localStorage
-        this.setToken(user[0].name); // O el campo que corresponda al token
+        this.setToken(user.name);  // Ajustar según la estructura de tu respuesta
         this.getLoggedInName.emit(true);
         return user;
       }));
   }
 
-  // Registro del usuario
-  public userregistration(name: string, email: string, password: string): Observable<any> {
-    return this.httpClient.post<any>(`${this.baseUrl}/register.php`, { name, email, password })
-      .pipe(map(user => {
-        return user;
-      }));
+  public logout() {
+    this.deleteToken();
+    this.getLoggedInName.emit(false); // Emitir el evento de cierre de sesión
   }
+
+  // Registro del usuario
+  // Registro del usuario
+public userregistration(name: string, email: string, password: string): Observable<any> {
+  // Enviar los parámetros con los nombres correctos
+  return this.httpClient.post<any>(`${this.baseUrl}/register.php`, { nombre: name, email, pwd: password })
+    .pipe(map(user => {
+      return user;
+    }));
+}
+
 
   // Métodos para manejar el token
   setToken(token: string) {
-    if (this.isBrowser()) {
-      localStorage.setItem('token', token);
+    try {
+      if (this.isBrowser()) {
+        localStorage.setItem('token', token);
+        console.log('Token guardado correctamente:', token);
+      }
+    } catch (error) {
+      console.error('Error al guardar el token en localStorage:', error);
     }
   }
+  
 
   getToken(): string | null {
     if (this.isBrowser()) {

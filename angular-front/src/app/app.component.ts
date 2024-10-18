@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from './services/login.service'; // Asegúrate de que la ruta de ApiService sea correcta
+import { LoginService } from './services/login.service'; 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -12,30 +12,26 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  loginbtn: boolean;
-  logoutbtn: boolean;
+  loginbtn: boolean = true;
+  logoutbtn: boolean = false;
 
   constructor(private loginService: LoginService, private router: Router) {
-    // Subscribirse a los cambios de estado de login
-    this.loginService.getLoggedInName.subscribe(name => this.changeName(name));
+    // Escuchar cambios en el estado de autenticación
+    this.loginService.getLoggedInName.subscribe(isLoggedIn => {
+      this.updateLoginState(isLoggedIn);
+    });
 
-    // Verificar si el usuario está logueado al inicializar
-    if (this.loginService.isLoggedIn()) {
-      this.loginbtn = false;
-      this.logoutbtn = true;
-    } else {
-      this.loginbtn = true;
-      this.logoutbtn = false;
-    }
+    // Inicializar el estado del login
+    this.updateLoginState(this.loginService.isLoggedIn());
   }
 
-  private changeName(name: boolean): void {
-    this.logoutbtn = name;
-    this.loginbtn = !name;
+  private updateLoginState(isLoggedIn: boolean): void {
+    this.loginbtn = !isLoggedIn;
+    this.logoutbtn = isLoggedIn;
   }
 
   logout() {
-    this.loginService.deleteToken();
-    this.router.navigate(['/login']);  // Redirigir al login tras logout
+    this.loginService.logout();
+    this.router.navigate(['/login']); // Redirigir al login tras logout
   }
 }

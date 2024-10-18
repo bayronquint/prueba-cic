@@ -34,13 +34,15 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['/listar-clientes']); // Redirigir al listado de clientes si el login es exitoso
+          console.log(data);  // Verificar qué datos están recibiéndose
+          this.router.navigate(['listar-clientes']); // Redirigir al listado de clientes si el login es exitoso
         },
         error => {
           alert('Nombre de usuario o contraseña incorrectos');
         }
       );
-  }
+}
+
 
   get email() { return this.angForm.get('email'); }
   get password() { return this.angForm.get('password'); }

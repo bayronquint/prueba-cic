@@ -12,7 +12,7 @@ if (isset($postdata) && !empty($postdata)) {
     $db = new Connection();
 
     // Obtener los datos del request
-    $email = trim($request->username);
+    $email = trim($request->email);
     $pwd = trim($request->password);
 
     // Preparar la consulta SQL con placeholders

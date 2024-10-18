@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { ClientesService } from '../../services/clientes.service';
 import { Cliente } from '../../clases/cliente';
 import { FormsModule } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-editar-clientes',
   standalone: true,
-  imports: [ FormsModule ],
+  imports: [ FormsModule, RouterModule ],
   templateUrl: './editar-clientes.component.html',
   styleUrl: './editar-clientes.component.css'
 })

@@ -1,29 +1,30 @@
-<h2 class="text-center">Login</h2>
-<div class="row justify-content-center">
-  <div class="col-md-6">
-    <div class="card">
-      <div class="card-body">
-        <form [formGroup]="angForm" (ngSubmit)="postdata()" autocomplete="off">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" formControlName="email" class="form-control" placeholder="Email">
-            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
-              <small *ngIf="email.errors?.required">El email es obligatorio.</small>
-              <small *ngIf="email.errors?.email">Debe ser un email válido.</small>
-            </div>
+<h2 class="text-3xl font-bold text-center mt-8 mb-4">Iniciar Sesión</h2> <!-- Separado de la navbar -->
+<div class="flex justify-center">
+  <div class="w-full max-w-md">
+    <div class="bg-white shadow-lg rounded-lg p-8">
+      <form [formGroup]="angForm" (ngSubmit)="postdata()" autocomplete="off">
+        <div class="mb-6">
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" id="email" formControlName="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 text-lg p-2" placeholder="Introduce tu email" />
+          <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="text-red-500 text-sm mt-1">
+            <small *ngIf="email?.errors?.['required']">El email es obligatorio.</small>
+            <small *ngIf="email?.errors?.['email']">Debe ser un email válido.</small>
           </div>
+        </div>
 
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" formControlName="password" class="form-control" placeholder="Password">
-            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
-              <small *ngIf="password.errors?.required">La contraseña es obligatoria.</small>
-            </div>
+        <div class="mb-6">
+          <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
+          <input type="password" id="password" formControlName="password" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200 focus:border-blue-500 text-lg p-2" placeholder="Introduce tu contraseña" />
+          <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="text-red-500 text-sm mt-1">
+            <small *ngIf="password?.errors?.['required']">La contraseña es obligatoria.</small>
           </div>
+        </div>
 
-          <button type="submit" class="btn btn-success btn-block" [disabled]="angForm.invalid">Login</button>
-        </form>
-      </div>
+        <button type="submit" 
+          [ngClass]="{'bg-gray-400': angForm.invalid, 'bg-blue-600': !angForm.invalid}" 
+          class="w-full text-white font-bold py-3 rounded transition duration-200 ease-in-out focus:outline-none focus:ring focus:ring-blue-300" 
+          [disabled]="angForm.invalid">Iniciar Sesión</button>
+      </form>
     </div>
   </div>
 </div>
