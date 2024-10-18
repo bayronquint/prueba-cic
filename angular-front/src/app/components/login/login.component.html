@@ -1,0 +1,29 @@
+<h2 class="text-center">Login</h2>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="angForm" (ngSubmit)="postdata()" autocomplete="off">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" formControlName="email" class="form-control" placeholder="Email">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+              <small *ngIf="email.errors?.required">El email es obligatorio.</small>
+              <small *ngIf="email.errors?.email">Debe ser un email válido.</small>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" formControlName="password" class="form-control" placeholder="Password">
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+              <small *ngIf="password.errors?.required">La contraseña es obligatoria.</small>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-success btn-block" [disabled]="angForm.invalid">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

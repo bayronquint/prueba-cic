@@ -5,6 +5,13 @@ class Connection extends mysqli
     {
         parent::__construct('localhost', 'root', '', 'prueba_cic');
         $this->set_charset('utf8');
-        $this->connect_error == NULL ? 'Conexión exitosa a la DB' : die('Error al conectarse');
+        if ($this->connect_error) {
+            die('Error al conectarse a la base de datos (' . $this->connect_errno . ') ' . $this->connect_error);
+        }
+    }
+
+    public function prepare_statement($sql)
+    {
+        return $this->prepare($sql);
     }
 }

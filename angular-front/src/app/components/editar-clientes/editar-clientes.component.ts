@@ -19,7 +19,7 @@ export class EditarClientesComponent {
   editarCliente(){
     this.clienteService.editarCliente(this.cliente).subscribe(resultado => {
       if(resultado['updateCliente']){
-        this.router.navigate(['/'])
+        this.router.navigate(['/listar-clientes'])
       } else {
         alert('Ocurrió un error o la información no ha recibido un cambio a la original')
       }

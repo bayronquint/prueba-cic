@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ClientesService {
-  url = 'http://localhost/prueba-cic/api/clientes';
+  url = 'http://localhost:8080/prueba-cic/api/clientes';
   constructor(private http: HttpClient) { }
 
   obtenerClientes(): Observable<any>{

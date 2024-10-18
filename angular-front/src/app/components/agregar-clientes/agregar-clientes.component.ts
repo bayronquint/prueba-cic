@@ -23,7 +23,7 @@ export class AgregarClientesComponent {
         if(!resultado['insertCliente']){
           alert('Ocurrió un error al insertar la información del cliente.')
         } else{
-          this.router.navigate(['/']);
+          this.router.navigate(['/listar-clientes']);
         }
       })
     }
