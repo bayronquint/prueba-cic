@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 14, 2024 at 05:17 AM
+-- Generation Time: Oct 18, 2024 at 09:38 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -40,9 +40,30 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`idCliente`, `nombre`, `edad`, `fecha`, `genero`) VALUES
-(1, 'Brandon', 19, '2005-01-20', 'M'),
-(2, 'Armani Restrepo', 24, '2024-08-16', 'M'),
-(3, 'Carlitos Quintana', 21, '2024-08-07', 'M');
+(20, 'Brandon', 1, '2024-10-10', 'M');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `nombre`, `password`, `email`) VALUES
+(2, 'brandon', '$2y$10$FR99caXb/sON2Neiy7IpAOU94Uq6ihY1UgPwYZuOYo5CngJa99IkW', 'brandonquintero2005@gmail.com'),
+(3, 'Laura', '$2y$10$uqqL6D0If/acmyNud5zFrOfQ0VHH9Kj7Zq4ighmx9MQfeDqMIt2nO', 'picoychao@gmail.com'),
+(4, 'Manuela', '$2y$10$LMHKjhzY4CGNhjnvNvStS.20SmG3B1S8t4fD0GXI32U6NBxNpNSB.', 'manuela@gmail.com'),
+(5, 'andrea', '$2y$10$yokt2eQ/XFa5iSe4ThC8vuB8lLadM7E6.I7gnHarqOz6wvC1sOgwa', 'suerte@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -55,6 +76,13 @@ ALTER TABLE `clientes`
   ADD PRIMARY KEY (`idCliente`);
 
 --
+-- Indexes for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -62,7 +90,13 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT for table `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
